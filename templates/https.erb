@@ -1,7 +1,7 @@
 ListenHTTPS
   Address <%= @address %>
   Port <%= @port %>
-  Cert <%= @cert %>
+  Cert "<%= @cert %>"
   AddHeader "X-Forwarded-Proto: https"
 <% if @calist -%>
   CAlist "<%= @calist %>"

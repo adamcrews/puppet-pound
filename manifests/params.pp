@@ -4,7 +4,7 @@ class pound::params {
   $service_ensure = 'running'
   $service_manage = true
   $user           = 'nobody'
-  $group          = 'nogroup'
+  $group          = 'nobody'
 
   case $::osfamily { 
     'RedHat': { 
