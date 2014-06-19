@@ -15,16 +15,16 @@ ListenHTTPS
 <%- if @ciphers -%>
   Ciphers <%= @ciphers %>
 <% end -%>
-<%- if @clientcert -%>
-  ClientCert <%= @clientcert %>
+<%- if @client_cert -%>
+  ClientCert <%= @client_cert %>
 <% end -%>
 End
 
 Service
   <%- @backend.each_pair do |back_addr, back_port| -%>
   BackEnd
-    Address <% back_addr %>
-    Port <% back_port %>
+    Address <%= back_addr %>
+    Port <%= back_port %>
   End
   <%- end -%>
   <%- if @session -%>

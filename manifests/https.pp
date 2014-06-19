@@ -6,7 +6,8 @@ define pound::https (
   $ensure           = 'present',
   $target           = '/etc/pound.conf',
   $custom_template  = undef,
-  $ciphers          = 'ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;'
+  $ciphers          = 'ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;',
+  $client_cert      = undef,
 ) { 
   
   if $custom_template { 
