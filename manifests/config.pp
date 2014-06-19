@@ -5,6 +5,17 @@ class pound::config inherits pound {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
+  # SSL certs will go in this directory
+  file { '/etc/pound':
+    ensure  => directory,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0500',
+    purge   => true,
+    recurse => true,
+    backup  => undef,
+  }
+
   concat { $config_name:
     owner => 'root',
     group => 'root',

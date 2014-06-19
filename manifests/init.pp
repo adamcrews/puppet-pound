@@ -36,11 +36,13 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class pound (
-  $package_ensure = 'present',
+  $package_ensure = $pound::params::package_ensure,
   $package_name   = $pound::params::package_name,
-  $service_ensure = 'running',
-  $service_manage = true,
+  $service_ensure = $pound::params::package_name,
+  $service_manage = $pound::params::service_manage,
   $config_name    = $pound::params::config_name,
+  $user           = $pound::params::user,
+  $group          = $pound::params::group,
 ) inherits pound::params {
 
   anchor { 'pound::begin': }
