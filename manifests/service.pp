@@ -5,8 +5,7 @@ class pound::service inherits pound {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
-  if $service_manage {
-
+  if $service_manage == true {
     service { 'pound':
       ensure => $service_ensure,
       enable => $service_ensure ? {

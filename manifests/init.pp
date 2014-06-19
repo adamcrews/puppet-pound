@@ -38,7 +38,7 @@
 class pound (
   $package_ensure = $pound::params::package_ensure,
   $package_name   = $pound::params::package_name,
-  $service_ensure = $pound::params::package_name,
+  $service_ensure = $pound::params::service_ensure,
   $service_manage = $pound::params::service_manage,
   $config_name    = $pound::params::config_name,
   $user           = $pound::params::user,
