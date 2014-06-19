@@ -13,7 +13,7 @@ define pound::https (
     $content = template($custom_template)
   } else {
     # This template uses $cert, $address, $port, $backend, $ciphers
-    $contnet = template("${module_name}/https.erb")
+    $content = template("${module_name}/https.erb")
   }
     
   concat::fragment { "https_server-${title}":
