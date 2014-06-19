@@ -2,11 +2,22 @@ ListenHTTPS
   Address <%= @address %>
   Port <%= @port %>
   Cert <%= @cert %>
-  <%- if @calist %>CAlist <%= @calist %><% end -%>
-  <%- if @verifylist %>VerifyList <%= @verifylist %><% end -%>
-  <%- if @crllist %>CRLlist <%= @crllist %><% end -%>
-  <%- if @ciphers %>Ciphers <%= @ciphers %><% end -%>
-  <%- if @clientcert %>ClientCert <%= @clientcert %><% end -%>
+  AddHeader "X-Forwarded-Proto: https"
+<% if @calist -%>
+  CAlist <%= @calist %>
+<% end -%>
+<% if @verifylist -%>
+  VerifyList <%= @verifylist %>
+<% end -%>
+<%- if @crllist -%>
+  CRLlist <%= @crllist %>
+<% end -%>
+<%- if @ciphers -%>
+  Ciphers <%= @ciphers %>
+<% end -%>
+<%- if @clientcert -%>
+  ClientCert <%= @clientcert %>
+<% end -%>
 End
 
 Service
