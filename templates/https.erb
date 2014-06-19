@@ -4,19 +4,19 @@ ListenHTTPS
   Cert <%= @cert %>
   AddHeader "X-Forwarded-Proto: https"
 <% if @calist -%>
-  CAlist <%= @calist %>
+  CAlist "<%= @calist %>"
 <% end -%>
 <% if @verifylist -%>
-  VerifyList <%= @verifylist %>
+  VerifyList "<%= @verifylist %>"
 <% end -%>
 <%- if @crllist -%>
-  CRLlist <%= @crllist %>
+  CRLlist "<%= @crllist %>"
 <% end -%>
 <%- if @ciphers -%>
-  Ciphers <%= @ciphers %>
+  Ciphers "<%= @ciphers %>"
 <% end -%>
 <%- if @client_cert -%>
-  ClientCert <%= @client_cert %>
+  ClientCert "<%= @client_cert %>"
 <% end -%>
 End
 

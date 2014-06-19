@@ -1,14 +1,14 @@
 <% if @user -%>
-User <%= @user %>
+User "<%= @user %>"
 <% end -%>
 <% if @group -%>
-Group <%= @group %>
+Group "<%= @group %>"
 <% end -%>
 <% if @alive -%>
 Alive <%= @alive %>
 <% end -%>
 <% if @rootjail -%>
-RootJail <%= @rootjail %>
+RootJail "<%= @rootjail %>"
 <% end -%>
 <% if @loglevel -%>
 LogLevel <%= @LogLevel %>
@@ -38,5 +38,5 @@ ConnTo <%= @connto %>
 Grace <%= @grace %>
 <% end -%>
 <% if @control -%>
-Control <%= @control %>
+Control "<%= @control %>"
 <% end -%>
