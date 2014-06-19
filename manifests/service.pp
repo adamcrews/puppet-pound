@@ -8,7 +8,7 @@ class pound::service inherits pound {
   if $service_manage {
 
     service { 'pound':
-      ensure => $package_ensure,
+      ensure => $service_ensure,
       enable => $service_ensure ? {
         'running' => true,
         'stopped' => false,
