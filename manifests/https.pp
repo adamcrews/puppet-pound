@@ -8,12 +8,13 @@ define pound::https (
   $custom_template  = undef,
   $ciphers          = 'ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;',
   $client_cert      = undef,
+  $rewritelocation  = undef,
 ) { 
   
   if $custom_template { 
     $content = template($custom_template)
   } else {
-    # This template uses $cert, $address, $port, $backend, $ciphers
+    # This template uses $cert, $address, $port, $backend, $ciphers, $client_cert, $rewritelocation
     $content = template("${module_name}/https.erb")
   }
     

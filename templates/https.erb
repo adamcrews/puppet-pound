@@ -3,6 +3,9 @@ ListenHTTPS
   Port <%= @port %>
   Cert "<%= @cert %>"
   AddHeader "X-Forwarded-Proto: https"
+<% if @rewritelocation -%>
+  RewriteLocation <%= @rewritelocation %>
+<% end -%>
 <% if @calist -%>
   CAlist "<%= @calist %>"
 <% end -%>
