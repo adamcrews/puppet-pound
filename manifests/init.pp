@@ -1,39 +1,54 @@
 # == Class: pound
 #
-# Full description of class pound here.
+# A light weight ssl/tls server.
 #
 # === Parameters
 #
-# Document parameters here.
+# [*package_ensure*]
+#   Ensure the package is either present or absent. Default: present
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*package_name*]
+#   The name of the package to install. Default: Pound
 #
-# === Variables
+# [*service_ensure*]
+#   Ensure the service is running or stopped.  Default: running
 #
-# Here you should define a list of variables that this module would require.
+# [*service_manage*]
+#   Manage the state of the service or not.  Default: true
 #
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
+# [*config_name*]
+#   The path to the config file.  Default: /etc/pound.cfg
+#
+# [*user*]
+#   The userid the service runs as. Default: nobody
+#
+# [*group*]
+#   The group the service runs as. Default: nobody
 #
 # === Examples
 #
-#  class { pound:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
+# include pound
+#
+# file { '/etc/pound/my_ssl_cert.pem':
+#   ensure => file,
+#   owner  => root,
+#   group  => root,
+#   mode   => '0400',
+#   source => 'puppet:///secrets/my_ssl_cert.pem',
+# }
+#
+# pound::https { 'my-virtualhost-name':
+#   cert    => '/etc/pound/my_ssl_cert.pem',
+#   ciphers => 'HIGH:!SSLv2:!ADH:!aNULL:!eNULL:!NULL',
+# }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Adam Crews <adam.crews@gmail.com>
 #
 # === Copyright
 #
-# Copyright 2014 Your name here, unless otherwise noted.
+# Copyright 2014 Adam Crews, unless otherwise noted.
 #
 class pound (
   $package_ensure = $pound::params::package_ensure,
