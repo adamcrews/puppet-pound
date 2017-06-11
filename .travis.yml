@@ -41,7 +41,7 @@ notifications:
   email:
     - adam.crews@gmail.com
   slack:
-        secure: ZvqcIVgI4KmQgiQv6GzoKXG/imLSqaniSTcv4vHdlShO+vlMHma9rh9xK1lXU0aEFaWHn7c/58P2ucVWoK11N0H1/mzaK2YifljioxhNWNc1K4eOGR/xNwyOaHuvbbZJ8J0lw3s+G6MvTgCNXh92dS6nxiAw4rjY7P0hVy9qbSw=
+    secure: ZvqcIVgI4KmQgiQv6GzoKXG/imLSqaniSTcv4vHdlShO+vlMHma9rh9xK1lXU0aEFaWHn7c/58P2ucVWoK11N0H1/mzaK2YifljioxhNWNc1K4eOGR/xNwyOaHuvbbZJ8J0lw3s+G6MvTgCNXh92dS6nxiAw4rjY7P0hVy9qbSw=
 deploy:
   provider: puppetforge
   user: adamcrews
