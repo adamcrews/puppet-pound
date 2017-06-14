@@ -1,55 +1,52 @@
----
 sudo: false
 dist: trusty
 language: ruby
 cache: bundler
 before_install:
-  - bundle -v
-  - rm Gemfile.lock || true
-  - gem update --system
-  - gem update bundler
-  - gem --version
-  - bundle -v
+- bundle -v
+- rm Gemfile.lock || true
+- gem update --system
+- gem update bundler
+- gem --version
+- bundle -v
 script:
-  - 'bundle exec rake $CHECK'
+- bundle exec rake $CHECK
 matrix:
   fast_finish: true
   include:
   - rvm: 2.1.9
-    bundler_args: --without system_tests development
+    bundler_args: "--without system_tests development"
     env: PUPPET_VERSION="~> 4.0" CHECK=test
   - rvm: 2.2.7
-    bundler_args: --without system_tests development
+    bundler_args: "--without system_tests development"
     env: PUPPET_VERSION="~> 4.0" CHECK=test
   - rvm: 2.3.4
-    bundler_args: --without system_tests development
+    bundler_args: "--without system_tests development"
     env: PUPPET_VERSION="~> 4.0" CHECK=test
   - rvm: 2.4.1
-    bundler_args: --without system_tests development
+    bundler_args: "--without system_tests development"
     env: PUPPET_VERSION="~> 4.0" CHECK=test
   - rvm: 2.4.1
-    bundler_args: --without system_tests development
+    bundler_args: "--without system_tests development"
     env: PUPPET_VERSION="~> 4.0" CHECK=rubocop
   - rvm: 2.4.1
-    bundler_args: --without system_tests development
+    bundler_args: "--without system_tests development"
     env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
 branches:
   only:
   - master
-  - /^v\d/
+  - "/^v\\d/"
 notifications:
   email:
-    - adam.crews@gmail.com
+  - adam.crews@gmail.com
   slack:
-    secure: "ZvqcIVgI4KmQgiQv6GzoKXG/imLSqaniSTcv4vHdlShO+vlMHma9rh9xK1lXU0aEFaWHn7c/58P2ucVWoK11N0H1/mzaK2YifljioxhNWNc1K4eOGR/xNwyOaHuvbbZJ8J0lw3s+G6MvTgCNXh92dS6nxiAw4rjY7P0hVy9qbSw="
+    secure: XbJmL6qoSxqVoLZjEgw6id02Yy5q7+vw+ORM8Erp4bJSHwIXnIPpgUUYaSH5cWZ2/UQfeSOH5zf7n8x5KNekYTYMskpGZaPKSy0o5rxxlrsbUDUgmDsYJ2b5sA16bFtgjfnOBaecAscg6HgRVhdyXIx5Vbl4soFPvZuvKMdKaxw=
 deploy:
   provider: puppetforge
   user: adamcrews
   password:
-    secure: "LSglzO0+5oxLRQTjkd4qjCer0SzJozZLHDb8CrjRARYkEy7zkI4IgYXjGXGUbSvdu6xVWJBGz5n4BXt7M3EhiIT3xjBXIc1Qo13IVrgjCxN72pB+61TjofpmCLV+DPB5ZkubEfFmVq95jx09n7L/5oYFbzPPuF6OalnvHJej7V8="
+    secure: LSglzO0+5oxLRQTjkd4qjCer0SzJozZLHDb8CrjRARYkEy7zkI4IgYXjGXGUbSvdu6xVWJBGz5n4BXt7M3EhiIT3xjBXIc1Qo13IVrgjCxN72pB+61TjofpmCLV+DPB5ZkubEfFmVq95jx09n7L/5oYFbzPPuF6OalnvHJej7V8=
   on:
     tags: true
-    # all_branches is required to use tags
     all_branches: true
-    # Only publish the build marked with "DEPLOY_TO_FORGE"
     condition: "$DEPLOY_TO_FORGE = yes"
