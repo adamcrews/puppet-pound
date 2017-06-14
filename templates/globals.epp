@@ -1,0 +1,42 @@
+<% if $pound::user { -%>
+User "<%= $pound::user %>"
+<% } -%>
+<% if $pound::group { -%>
+Group "<%= $pound::group %>"
+<% } -%>
+<% if $pound::alive { -%>
+Alive <%= $pound::alive %>
+<% } -%>
+<% if $pound::rootjail { -%>
+RootJail "<%= $pound::rootjail %>"
+<% } -%>
+<% if $pound::pound_loglevel { -%>
+LogLevel <%= $pound::pound_loglevel %>
+<% } -%>
+<% if $pound::pound_logfacility { -%>
+LogFacility <%= $pound::pound_logfacility %>
+<% } -%>
+<% if $pound::threads { -%>
+Threads <%= $pound::threads %>
+<% } -%>
+<% if $pound::ignorecase { -%>
+IgnoreCase <%= $pound::ignorecase %>
+<% } -%>
+<% if $pound::dynscale { -%>
+DynScale <%= $pound::dynscale %>
+<% } -%>
+<% if $pound::client { -%>
+Client <%= $pound::client %>
+<% } -%>
+<% if $pound::timeout { -%>
+Timeout <%= $pound::timeout %>
+<% } -%>
+<% if $pound::connto { -%>
+ConnTo <%= $pound::connto %>
+<% } -%>
+<% if $pound::grace { -%>
+Grace <%= $pound::grace %>
+<% } -%>
+<% if $pound::control { -%>
+Control "<%= $pound::control %>"
+<% } -%>

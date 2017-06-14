@@ -1,6 +1,6 @@
 {
   "name": "adamcrews-pound",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "source": "https://github.com/adamcrews/puppet-pound",
   "author": "Adam Crews",
   "license": "Apache-2.0",
@@ -8,40 +8,15 @@
   "description": "Pound Module to manage the Pound SSL/TLS proxy.",
   "project_page": "https://github.com/adamcrews/puppet-pound",
   "requirements": [
-    {
-      "name": "pe",
-      "version_requirement": ">=3.2.0 <3.4.0"
-    },
-    {
-      "name": "puppet",
-      "version_requirement": ">=3.0.0 <4.0.0"
-    }
+    { "name": "puppet", "version_requirement": ">= 4.7.0 < 5.0.0" }
   ],
+  "data_provider": "hiera",
   "dependencies": [
-    {
-      "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 3.2.1 <5.0.0"
-    },
-    {
-      "name": "puppetlabs/concat",
-      "version_requirement": ">= 1.0.0 <2.0.0"
-    }
-  ],
-  "types": [
-
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.13.1 < 5.0.0" },
+    { "name": "puppetlabs/concat", "version_requirement": ">= 4.0.0 < 5.0.0" }
   ],
   "operatingsystem_support": [
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
-        "6"
-      ]
-    },
-    {
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [
-        "6"
-      ]
-    }
+    { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6", "7" ] },
+    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6", "7" ] }
   ]
 }

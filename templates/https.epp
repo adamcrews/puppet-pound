@@ -1,0 +1,54 @@
+<%- |
+  Stdlib::Absolutepath $cert,
+  String $address,
+  Integer $port,
+  Hash[String, Integer, 1] $backend,
+  String $ciphers,
+  Optional[Stdlib::Absolutepath] $client_cert = undef,
+  Optional[String] $custom_template = undef,
+  Optional[String] $rewritelocation = undef,
+  Optional[String] $calist = undef,
+  Optional[String] $verifylist = undef,
+  Optional[String] $crllist = undef,
+  Optional[Hash[String, String]] $session = undef
+| -%>
+ListenHTTPS
+  Address <%= $address %>
+  Port <%= $port %>
+  Cert "<%= $cert %>"
+  AddHeader "X-Forwarded-Proto: https"
+<% if $rewritelocation { -%>
+  RewriteLocation <%= $rewritelocation %>
+<% } -%>
+<% if $calist { -%>
+  CAlist "<%= $calist %>"
+<% } -%>
+<% if $verifylist { -%>
+  VerifyList "<%= $verifylist %>"
+<% } -%>
+<%- if $crllist { -%>
+  CRLlist "<%= $crllist %>"
+<% } -%>
+<%- if $ciphers { -%>
+  Ciphers "<%= $ciphers %>"
+<% } -%>
+<%- if $client_cert { -%>
+  ClientCert "<%= $client_cert %>"
+<% } -%>
+End
+
+Service
+  <%- $backend.each |$back_addr, $back_port| { -%>
+  BackEnd
+    Address <%= $back_addr %>
+    Port <%= $back_port %>
+  End
+  <%- } -%>
+  <%- if $session { -%>
+  Session
+    <%- $session.each |$key, $val| { -%>
+    <%= $key %>  <%= $val %>
+    <%- } -%>
+  End
+  <%- } -%>
+End

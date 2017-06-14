@@ -1,13 +1,10 @@
 # This is a private class, not intended to be used
 # independent of the main class.
 class pound::install inherits pound {
-  if $caller_module_name != $module_name {
-    fail("Use of private class ${name} by ${caller_module_name}")
-  }
+  assert_private("${name} is a pivate class, not meant to be called directly.")
 
   package { 'pound':
-    name   => $package_name, 
-    ensure => $package_ensure,
+    ensure => $pound::package_ensure,
+    name   => $pound::package_name,
   }
-
 }
