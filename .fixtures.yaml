@@ -1,0 +1,11 @@
+---
+fixtures:
+  forge_modules:
+    stdlib:
+      repo: 'puppetlabs/stdlib'
+      ref: '4.17.0'
+    concat:
+      repo: 'puppetlabs/concat'
+      ref: '4.0.0'
+  symlinks:
+    "pound": "#{source_dir}"

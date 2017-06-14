@@ -16,6 +16,8 @@
 
 This module installs and configures the Pound ssl/tls daemon.
 
+Note: As of the 2.0.0 release only puppet 4.7 and above are supported.
+
 ##Usage
 
 `include ::pound` is sufficient to get the server installed.  
@@ -44,7 +46,6 @@ You will need to supply your own ssl cert in pem format.
 * pound::install: Handles installing the package.  The package must be in a repo already configured on your system.
 * pound::config: Handles the creation of the config file and concatenates the templates together.
 * pound::service: Manages the pound service.
-* pound::params: Sets the defaults used elsewhere.
 
 ####Defined Types
 
@@ -76,11 +77,11 @@ The path to the config file.  Default: /etc/pound.cfg
 
 ####`user`
 
-The user to drop privelages to.  Default: nobody
+The user to drop privileges to.  Default: nobody
 
 ####`group`
 
-The group to drop privelages to.  Default: nobody
+The group to drop privileges to.  Default: nobody
 
 ##Limitations
 
@@ -89,9 +90,8 @@ The cipher selection is limited to what is supported by your underlying openssl 
 ##ToDo
 
 * Add additional platform support.
-* Create some tests.
+* Create some more tests.
 
 ###Contributors
 
 Individual contributors can be found at: [https://github.com/adamcrews/puppet-pound/graphs/contributors](https://github.com/adamcrews/puppet-pound/graphs/contributors)
-

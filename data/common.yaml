@@ -1,0 +1,9 @@
+---
+pound::package_ensure: present
+pound::package_name: Pound
+pound::service_ensure: running
+pound::service_manage: true
+pound::config_file: /etc/pound.cfg
+pound::user: nobody
+pound::group: nobody
+...

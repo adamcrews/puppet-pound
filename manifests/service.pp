@@ -1,18 +1,17 @@
 # This is a private class, not intended to be used
 # independent of the main class.
 class pound::service inherits pound {
-  if $caller_module_name != $module_name {
-    fail("Use of private class ${name} by ${caller_module_name}")
+  assert_private("${name} is a pivate class, not meant to be called directly.")
+
+  $_enable = $pound::service_ensure ? {
+    'running' => true,
+    default   => false,
   }
 
-  if $service_manage == true {
+  if $pound::service_manage == true {
     service { 'pound':
-      ensure => $service_ensure,
-      enable => $service_ensure ? {
-        'running' => true,
-        'stopped' => false,
-        default   => $service_ensure,
-      },
+      ensure     => $pound::service_ensure,
+      enable     => $_enable,
       hasrestart => true,
       hasstatus  => true,
     }
