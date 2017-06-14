@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not impact the functionality of the module.
 
+## [v2.1.1](https://github.com/adamcrews/puppet-pound/tree/v2.1.1) (2017-06-14)
+[Full Changelog](https://github.com/adamcrews/puppet-pound/compare/v2.1.0...v2.1.1)
+
+**Merged pull requests:**
+
+- Updates for travis notifications [\#4](https://github.com/adamcrews/puppet-pound/pull/4) ([adamcrews](https://github.com/adamcrews))
+
 ## [v2.1.0](https://github.com/adamcrews/puppet-pound/tree/v2.1.0) (2017-06-14)
 [Full Changelog](https://github.com/adamcrews/puppet-pound/compare/1.2.0...v2.1.0)
 
